@@ -1,0 +1,4 @@
+{
+    "command": "npm run dev -- -p <port> -H <host>",
+    "working_directory": "/home/kavia/workspace/code-generation/enterprise-commerce-platform-332160-332176/frontend_nextjs"
+}
