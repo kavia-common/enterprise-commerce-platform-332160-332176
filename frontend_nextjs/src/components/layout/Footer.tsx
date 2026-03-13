@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FOOTER_COLUMNS, SOCIAL_LINKS } from "@/lib/constants";
 
 /**
@@ -14,9 +15,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand column */}
           <div>
-            <a href="/" className="text-xl font-extrabold tracking-tight">
+            <Link href="/" className="text-xl font-extrabold tracking-tight">
               COMMERCE
-            </a>
+            </Link>
             <p className="text-sm text-white/60 mt-4 max-w-xs leading-relaxed">
               Curated collections for the modern lifestyle. Quality products,
               exceptional service, and timeless style.
@@ -47,12 +48,12 @@ export default function Footer() {
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-sm text-white/60 hover:text-white transition-colors duration-200"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 /**
  * Custom 404 page following the enterprise commerce design system.
@@ -22,12 +23,12 @@ export default function NotFound() {
         </p>
 
         {/* CTA */}
-        <a
+        <Link
           href="/"
           className="inline-flex items-center justify-center bg-[#E94560] text-white text-sm font-semibold uppercase tracking-[0.05em] px-8 py-3.5 rounded-lg hover:bg-[#D63851] hover:-translate-y-[1px] hover:shadow-[0_4px_12px_rgba(233,69,96,0.3)] active:translate-y-0 transition-all duration-200"
         >
           Back to Home
-        </a>
+        </Link>
       </div>
     </section>
   );
