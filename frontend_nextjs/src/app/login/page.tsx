@@ -289,7 +289,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isSubmitting || isSuccess}
-              className="w-full h-12 bg-[#E94560] text-white text-sm font-semibold uppercase tracking-[0.05em] rounded-lg hover:bg-[#D63851] hover:-translate-y-[1px] hover:shadow-[0_4px_12px_rgba(233,69,96,0.3)] active:translate-y-0 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center"
+              className="w-full h-12 bg-[#3b82f6] text-white text-sm font-semibold uppercase tracking-[0.05em] rounded-lg hover:bg-[#2563eb] hover:-translate-y-[1px] hover:shadow-[0_4px_12px_rgba(59,130,246,0.3)] active:translate-y-0 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center"
             >
               {isSubmitting ? (
                 <span className="inline-flex items-center gap-2">
