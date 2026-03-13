@@ -8,11 +8,18 @@ import NewsletterSignup from "@/components/home/NewsletterSignup";
 /**
  * Homepage — the primary landing page for the enterprise commerce platform.
  * Composed of distinct full-width sections following the design system.
+ *
+ * The homepage uses a red background colour scoped only to this route.
+ * The global blue design-token theme (accents, buttons, links, etc.)
+ * remains unchanged across the rest of the application.
  */
 // PUBLIC_INTERFACE
 export default function Home() {
   return (
-    <>
+    <div
+      className="min-h-screen w-full"
+      style={{ backgroundColor: "#DC2626" }}
+    >
       {/* Hero section with gradient background and CTAs */}
       <HeroSection />
 
@@ -30,6 +37,6 @@ export default function Home() {
 
       {/* Newsletter signup */}
       <NewsletterSignup />
-    </>
+    </div>
   );
 }
