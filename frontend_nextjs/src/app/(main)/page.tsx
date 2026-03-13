@@ -9,33 +9,40 @@ import NewsletterSignup from "@/components/home/NewsletterSignup";
  * Homepage — the primary landing page for the enterprise commerce platform.
  * Composed of distinct full-width sections following the design system.
  *
- * The homepage uses a red background colour scoped only to this route.
- * The global blue design-token theme (accents, buttons, links, etc.)
- * remains unchanged across the rest of the application.
+ * Sections use an alternating white/gray-50 background pattern to create
+ * visual rhythm and separation. Each section has consistent vertical padding
+ * based on the 8px grid system defined in the style guide.
+ *
+ * Section flow:
+ *   1. Hero (dark gradient, full-bleed)
+ *   2. Categories (white background)
+ *   3. Featured Products (gray-50 background)
+ *   4. Promo Banner (full-bleed split)
+ *   5. Testimonials (gray-50 background)
+ *   6. Newsletter (dark gradient, full-bleed)
  */
 // PUBLIC_INTERFACE
 export default function Home() {
   return (
-    <div
-      className="min-h-screen w-full"
-      style={{ backgroundColor: "#DC2626" }}
-    >
-      {/* Hero section with gradient background and CTAs */}
+    <div className="min-h-screen w-full bg-white">
+      {/* Hero section — full-bleed dark gradient with CTAs */}
       <HeroSection />
 
-      {/* Shop by category grid */}
+      {/* Shop by category grid — white background */}
       <CategoryGrid />
 
-      {/* Featured products grid */}
-      <FeaturedProducts />
+      {/* Featured products grid — subtle gray background for contrast */}
+      <div className="bg-[#FAFAFA]">
+        <FeaturedProducts />
+      </div>
 
-      {/* Promotional split-screen banner */}
+      {/* Promotional split-screen banner — full-bleed */}
       <PromoBanner />
 
-      {/* Customer testimonials / social proof */}
+      {/* Customer testimonials / social proof — subtle gray background */}
       <Testimonials />
 
-      {/* Newsletter signup */}
+      {/* Newsletter signup — dark gradient */}
       <NewsletterSignup />
     </div>
   );

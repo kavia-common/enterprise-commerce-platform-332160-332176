@@ -4,32 +4,47 @@ import { TESTIMONIALS } from "@/lib/constants";
 
 /**
  * Testimonials / social proof section displaying customer reviews
- * in a card grid layout.
+ * in a responsive card grid layout.
+ *
+ * Grid layout:
+ *   - Mobile: 1 column
+ *   - Tablet: 2 columns
+ *   - Desktop: 3 columns
+ *
+ * Section uses a subtle gray-50 background for visual separation
+ * from adjacent white sections.
+ *
+ * Section spacing:
+ *   - Mobile: py-16 (64px)
+ *   - Desktop: py-24 (96px)
  */
 // PUBLIC_INTERFACE
 export default function Testimonials() {
   return (
-    <section className="w-full bg-[#FAFAFA]">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-16 lg:py-20">
+    <section className="w-full bg-[#FAFAFA]" aria-labelledby="testimonials-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
         {/* Section heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-[32px] font-bold text-[#262626] tracking-[-0.01em] mb-3">
+        <div className="text-center mb-10 md:mb-12 lg:mb-14">
+          <h2
+            id="testimonials-heading"
+            className="text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] font-bold text-[#262626] tracking-[-0.01em] mb-3"
+          >
             What Our Customers Say
           </h2>
-          <p className="text-[15px] text-[#737373] max-w-md mx-auto">
+          <p className="text-sm sm:text-[15px] text-[#737373] max-w-md mx-auto leading-relaxed">
             Real reviews from real customers who love our products.
           </p>
         </div>
 
         {/* Testimonial cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {TESTIMONIALS.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-xl p-8 shadow-[var(--shadow-sm)]"
+              className="bg-white rounded-xl p-6 sm:p-8 shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-shadow duration-300"
             >
               {/* Stars */}
-              <div className="flex gap-0.5 mb-4">
+              <div className="flex gap-0.5 mb-4" role="img" aria-label={`${testimonial.rating} out of 5 stars`}>
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star
                     key={star}
@@ -45,7 +60,7 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-[15px] text-[#404040] italic leading-[1.7] mb-6">
+              <p className="text-[14px] sm:text-[15px] text-[#404040] italic leading-[1.7] mb-6">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
 
@@ -54,8 +69,8 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                {/* Avatar placeholder */}
-                <div className="w-11 h-11 rounded-full bg-[#E5E5E5] flex items-center justify-center text-sm font-semibold text-[#525252] shrink-0">
+                {/* Avatar placeholder with initials */}
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#E5E5E5] flex items-center justify-center text-[13px] font-semibold text-[#525252] shrink-0">
                   {testimonial.author
                     .split(" ")
                     .map((n) => n[0])
@@ -65,7 +80,7 @@ export default function Testimonials() {
                   <p className="text-sm font-semibold text-[#262626]">
                     {testimonial.author}
                   </p>
-                  <p className="text-[13px] text-[#737373]">
+                  <p className="text-[12px] sm:text-[13px] text-[#737373]">
                     {testimonial.detail}
                   </p>
                 </div>

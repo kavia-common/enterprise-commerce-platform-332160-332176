@@ -4,7 +4,21 @@ import React, { useState } from "react";
 
 /**
  * Newsletter signup section with email input and subscribe button.
- * Dark background with centered content layout.
+ * Dark gradient background with centered content layout.
+ *
+ * Form features:
+ *   - Accessible label (sr-only for visual cleanliness)
+ *   - Email validation via native HTML5
+ *   - Success feedback after submission
+ *   - Auto-reset of success state after 3 seconds
+ *
+ * Layout:
+ *   - Mobile: stacked input + button, full width
+ *   - Desktop: inline input + button row
+ *
+ * Section spacing:
+ *   - Mobile: py-16 (64px)
+ *   - Desktop: py-24 (96px)
  */
 // PUBLIC_INTERFACE
 export default function NewsletterSignup() {
@@ -16,7 +30,7 @@ export default function NewsletterSignup() {
     if (email.trim()) {
       setSubmitted(true);
       setEmail("");
-      // Reset after 3 seconds
+      // Reset feedback after 3 seconds
       setTimeout(() => setSubmitted(false), 3000);
     }
   };
@@ -25,17 +39,22 @@ export default function NewsletterSignup() {
     <section
       className="w-full"
       style={{
-        background: "linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%)",
+        background:
+          "linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%)",
       }}
+      aria-labelledby="newsletter-heading"
     >
-      <div className="max-w-[600px] mx-auto px-4 md:px-8 py-16 lg:py-20 text-center">
+      <div className="max-w-[600px] mx-auto px-6 sm:px-8 py-16 md:py-20 lg:py-24 text-center">
         {/* Heading */}
-        <h2 className="text-2xl md:text-[32px] font-bold text-white mb-3">
+        <h2
+          id="newsletter-heading"
+          className="text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] font-bold text-white mb-3"
+        >
           Stay in the Loop
         </h2>
 
         {/* Subtitle */}
-        <p className="text-base text-white/70 mb-8">
+        <p className="text-sm sm:text-base text-white/70 leading-relaxed mb-8 md:mb-10">
           Subscribe for exclusive deals, new arrivals, and style inspiration.
         </p>
 
@@ -65,8 +84,15 @@ export default function NewsletterSignup() {
           </button>
         </form>
 
+        {/* Status announcement for screen readers */}
+        {submitted && (
+          <p role="status" className="sr-only">
+            Successfully subscribed to the newsletter.
+          </p>
+        )}
+
         {/* Privacy note */}
-        <p className="text-xs text-white/50 mt-3">
+        <p className="text-[11px] sm:text-xs text-white/50 mt-4">
           We respect your privacy. Unsubscribe at any time.
         </p>
       </div>

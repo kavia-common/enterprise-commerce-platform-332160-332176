@@ -2,15 +2,28 @@ import React from "react";
 
 /**
  * Promotional split-screen banner section.
- * Left side: visual/image area, Right side: content with CTA.
- * Stacks vertically on mobile.
+ *
+ * Layout:
+ *   - Desktop: 50/50 horizontal split (image left, content right)
+ *   - Mobile: stacked vertically (image on top, content below)
+ *
+ * The image side uses a decorative gradient placeholder.
+ * The content side has a light gray background with eyebrow text,
+ * headline, body copy, and a CTA button.
+ *
+ * Section height:
+ *   - Mobile: auto (stacked, min-h 300px for image)
+ *   - Desktop: min-h-[520px]
  */
 // PUBLIC_INTERFACE
 export default function PromoBanner() {
   return (
-    <section className="w-full flex flex-col md:flex-row min-h-[400px] md:min-h-[500px]">
+    <section
+      className="w-full flex flex-col md:flex-row min-h-[400px] md:min-h-[520px]"
+      aria-labelledby="promo-banner-heading"
+    >
       {/* Image half */}
-      <div className="w-full md:w-1/2 min-h-[300px] relative overflow-hidden">
+      <div className="w-full md:w-1/2 min-h-[280px] sm:min-h-[320px] relative overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -19,10 +32,21 @@ export default function PromoBanner() {
           }}
           aria-hidden="true"
         />
+
         {/* Decorative content placeholder */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-10">
+        <div className="absolute inset-0 flex items-center justify-center">
+          {/* Subtle pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, white 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+            aria-hidden="true"
+          />
           <svg
-            className="w-48 h-48 text-white"
+            className="w-40 h-40 sm:w-48 sm:h-48 text-white opacity-[0.08]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -39,20 +63,23 @@ export default function PromoBanner() {
       </div>
 
       {/* Content half */}
-      <div className="w-full md:w-1/2 bg-[#FAFAFA] flex flex-col justify-center px-8 md:px-12 lg:px-20 py-12 md:py-20">
+      <div className="w-full md:w-1/2 bg-[#FAFAFA] flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-20 py-12 sm:py-16 md:py-20">
         <div className="max-w-[480px]">
           {/* Eyebrow */}
-          <span className="text-xs uppercase font-semibold tracking-[0.05em] text-[#E94560] mb-4 block">
+          <span className="text-[11px] sm:text-xs uppercase font-semibold tracking-[0.1em] text-[#E94560] mb-4 sm:mb-5 block">
             Limited Edition
           </span>
 
           {/* Headline */}
-          <h2 className="text-2xl md:text-[32px] font-bold text-[#1A1A2E] leading-tight mb-4">
+          <h2
+            id="promo-banner-heading"
+            className="text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] font-bold text-[#1A1A2E] leading-tight tracking-[-0.01em] mb-4 sm:mb-5"
+          >
             Summer Collection 2024
           </h2>
 
           {/* Body text */}
-          <p className="text-base text-[#525252] leading-relaxed mb-8">
+          <p className="text-sm sm:text-base text-[#525252] leading-relaxed mb-8 sm:mb-10">
             Discover our latest summer collection featuring lightweight fabrics,
             vibrant colors, and timeless silhouettes designed for the modern
             wardrobe.
