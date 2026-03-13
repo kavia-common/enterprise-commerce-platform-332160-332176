@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import AnnouncementBar from "@/components/layout/AnnouncementBar";
-import AppShell from "@/components/layout/AppShell";
-import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,14 +15,20 @@ export const metadata: Metadata = {
 };
 
 /**
- * Root layout component that wraps all pages with the global
- * font, announcement bar, navigation (top navbar + left sidebar),
- * centered main content, and footer.
+ * Root layout component that provides the global HTML structure,
+ * font configuration, and CSS reset for all pages.
+ *
+ * This layout is intentionally minimal — it does NOT include the
+ * AppShell or DashboardShell. Each route group provides its own
+ * shell layout:
+ *   - (main) routes: AppShell with shopping sidebar
+ *   - dashboard routes: DashboardShell with dashboard sidebar
  *
  * Layout structure:
- *   - Announcement bar (top, dismissible)
- *   - AppShell (navbar at top, sidebar on left, main content centered)
- *   - Footer (below main content, scrolls with page)
+ *   - <html> with Inter font variable
+ *   - <body> with global font family
+ *   - Skip-to-content accessibility link
+ *   - Children rendered by nested route group layouts
  */
 // PUBLIC_INTERFACE
 export default function RootLayout({
@@ -41,15 +44,7 @@ export default function RootLayout({
           Skip to content
         </a>
 
-        {/* Announcement bar */}
-        <AnnouncementBar />
-
-        {/* Application shell: top navbar + left sidebar + centered main content */}
-        <AppShell>
-          {children}
-          {/* Footer inside AppShell so it scrolls with content */}
-          <Footer />
-        </AppShell>
+        {children}
       </body>
     </html>
   );
