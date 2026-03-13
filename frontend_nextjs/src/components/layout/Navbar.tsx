@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, Search, User, ShoppingBag } from "lucide-react";
+import { Menu, Search, Bell, User, ShoppingBag } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -103,6 +103,14 @@ export default function Navbar({
             aria-label="Search"
           >
             <Search size={20} />
+          </button>
+          {/* Notification bell icon with badge indicator */}
+          <button
+            className="p-2 text-[#404040] hover:text-[#1A1A2E] transition-colors relative cursor-pointer"
+            aria-label="Notifications"
+          >
+            <Bell size={20} />
+            <span className="absolute top-1 right-1 w-2 h-2 bg-[#E94560] rounded-full" />
           </button>
           <Link
             href="/login"
