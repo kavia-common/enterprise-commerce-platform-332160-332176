@@ -100,12 +100,13 @@ export default function Navbar() {
             >
               <Search size={20} />
             </button>
-            <button
+            <a
+              href="/login"
               className="hidden sm:block p-2 text-[#404040] hover:text-[#1A1A2E] transition-colors cursor-pointer"
-              aria-label="Account"
+              aria-label="Account — Sign in"
             >
               <User size={20} />
-            </button>
+            </a>
             <button
               className="p-2 text-[#404040] hover:text-[#1A1A2E] transition-colors relative cursor-pointer"
               aria-label="Cart - 3 items"
@@ -171,12 +172,12 @@ export default function Navbar() {
           </ul>
           <div className="mt-auto px-6 py-4 border-t border-[#F5F5F5]">
             <a
-              href="/account"
+              href="/login"
               className="flex items-center gap-3 text-sm font-medium text-[#404040] hover:text-[#1A1A2E] transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <User size={20} />
-              My Account
+              Sign In
             </a>
           </div>
         </nav>
