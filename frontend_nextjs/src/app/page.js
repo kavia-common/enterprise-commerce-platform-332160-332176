@@ -1,6 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
+/**
+ * PUBLIC_INTERFACE
+ * HomePage - Landing page for the Enterprise Commerce Platform.
+ * Provides navigation links to all major sections including admin pages.
+ */
 export default function HomePage() {
   return (
     <main style={{ padding: 24 }}>
@@ -12,6 +17,12 @@ export default function HomePage() {
         </li>
         <li>
           <Link href="/admin/activity">Admin: User Activity Log</Link>
+        </li>
+        <li>
+          <Link href="/admin/products">Admin: Products Management</Link>
+        </li>
+        <li>
+          <Link href="/admin/orders">Admin: Orders Management</Link>
         </li>
       </ul>
     </main>

@@ -79,10 +79,12 @@ export default function AdminActivityPage() {
             Admin-only table of login/logout and data update events.
           </p>
         </div>
-        <div style={{ display: 'flex', gap: 12 }}>
+        <nav style={{ display: 'flex', gap: 12 }}>
           <Link href="/">Home</Link>
           <Link href="/login">Login</Link>
-        </div>
+          <Link href="/admin/products">Products</Link>
+          <Link href="/admin/orders">Orders</Link>
+        </nav>
       </div>
 
       <section style={{ marginTop: 16, padding: 16, border: '1px solid #e2e8f0', borderRadius: 8 }}>

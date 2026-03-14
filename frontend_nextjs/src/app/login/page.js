@@ -64,10 +64,12 @@ export default function LoginPage() {
         )}
       </form>
 
-      <div style={{ marginTop: 16, display: 'flex', gap: 16 }}>
+      <nav style={{ marginTop: 16, display: 'flex', gap: 16 }}>
         <Link href="/">Home</Link>
-        <Link href="/admin/activity">Go to Activity Log</Link>
-      </div>
+        <Link href="/admin/activity">Activity Log</Link>
+        <Link href="/admin/products">Products</Link>
+        <Link href="/admin/orders">Orders</Link>
+      </nav>
     </main>
   );
 }

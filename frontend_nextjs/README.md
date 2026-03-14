@@ -12,6 +12,12 @@ Page:
 Admin role in this template:
 - Any email ending with `@admin.test` is treated as admin by the backend.
 
+## Products Management (Admin)
+- `/admin/products` — Placeholder page for Products CRUD (navigation link added; full UI coming soon).
+
+## Orders Management (Admin)
+- `/admin/orders` — Placeholder page for Orders CRUD (navigation link added; full UI coming soon).
+
 ## Environment
 Uses `.env` (already present). Needs:
 - `NEXT_PUBLIC_API_BASE` (e.g. `http://localhost:3001` or the deployed backend URL)
