@@ -1,0 +1,18 @@
+{
+  "name": "frontend_nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Next.js frontend for enterprise commerce platform (admin dashboard includes User Activity Log).",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000"
+  },
+  "dependencies": {
+    "@mui/icons-material": "^6.1.0",
+    "@mui/material": "^6.1.0",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
