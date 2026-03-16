@@ -2,6 +2,23 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Environment variables
+
+This project reads the backend API base URL from:
+
+- `NEXT_PUBLIC_API_BASE_URL` (preferred)
+- `NEXT_PUBLIC_API_BASE` (legacy/alternate; still supported)
+
+If neither is set, the frontend defaults to calling relative `"/api"`.
+
+You can copy the example file:
+
+```bash
+cp .env.example .env.local
+```
+
+Then set the appropriate values.
+
 First, run the development server:
 
 ```bash
